@@ -1,5 +1,7 @@
 class Employee:
     
+    raise_amount = 1.5
+
     def __init__(self, first, last, pay):
         self.first = first
         self.last = last
@@ -8,6 +10,9 @@ class Employee:
 
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
+
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amount)
 
 
 emp1 = Employee('Piyush', 'Ghate', 200)
@@ -33,6 +38,11 @@ print(emp2.email)
 
 # print('{} {}'.format(emp1.first, emp1.last)) #output: Piyush Ghate
 
-print(emp1.fullname())
-print(Employee.fullname(emp1))
+# print(emp1.fullname())
+# print(Employee.fullname(emp1))
 # print(emp2.fullname())
+
+print('old pay: ',emp1.pay)
+print('Hike by: ',Employee.raise_amount)
+emp1.apply_raise()
+print('new pay: ',emp1.pay)
