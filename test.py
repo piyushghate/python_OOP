@@ -26,6 +26,12 @@ class Employee:
         first, last, pay = emp_string.split('-')
         return cls(first, last, pay)
 
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday() ==6:
+            return False
+        else:
+            return True
 
 # emp1 = Employee('Piyush', 'Ghate', 200)
 # emp2 = Employee('Vikas', 'Chauhan', 150)
@@ -77,3 +83,9 @@ emp_string_1 = 'Piyush-Ghate-200'
 emp_c_1 = Employee.from_string(emp_string_1)
 
 print(emp_c_1.email)
+print('Current Emp: ',Employee.num_of_emp)
+
+import datetime
+my_date = datetime.date(2018, 11, 10)
+
+print(Employee.is_workday(my_date))
